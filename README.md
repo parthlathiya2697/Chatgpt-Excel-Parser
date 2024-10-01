@@ -1,63 +1,72 @@
-uvicorn main:app --reload
-1. Start the FastAPI Server
-Run the following command in your project directory:
+# Chatgpt-Excel-Parser
 
-bash
-Copy code
-uvicorn main:app --reload
-This will start the server on http://127.0.0.1:8000.
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
+## Introduction
+Chatgpt-Excel-Parser is a tool designed to parse Excel files and interact with ChatGPT to provide intelligent insights and data manipulation capabilities. This project leverages the power of OpenAI's GPT-4 model to enhance data processing tasks.
 
-Process Spreadsheets
-You can trigger the processing of all sample spreadsheets by making a POST request to the /process_spreadsheets/ endpoint.
+## Features
+- Parse Excel files (.xlsx, .xls)
+- Interact with ChatGPT for data insights
+- Automate data manipulation tasks
+- Generate reports based on parsed data
 
-Using a Browser or API Client:
-Navigate to http://127.0.0.1:8000/docs to access the interactive API docs.
-Find the process_spreadsheets endpoint and click "Try it out" -> "Execute".
+## Installation
+To install and set up the project, follow these steps:
 
+1. **Clone the repository:**
+    ```sh
+    git clone https://github.com/parthlathiya2697/Chatgpt-Excel-Parser.git
+    cd Chatgpt-Excel-Parser
+    ```
 
-Upload and Process a Single Spreadsheet
-You can upload and process a single Excel file using the /upload_and_process/ endpoint.
+2. **Create a virtual environment:**
+    ```sh
+    python3 -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
 
+3. **Install the required dependencies:**
+    ```sh
+    pip install -r requirements.txt
+    ```
 
-Using the API Docs:
-Navigate to http://127.0.0.1:8000/docs.
-Find the upload_and_process endpoint.
-Click "Try it out", upload your file, and click "Execute".
+## Usage
+To use the Chatgpt-Excel-Parser, follow these steps:
 
+1. **Activate the virtual environment:**
+    ```sh
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
 
-Retrieve Extracted Data
-To retrieve all extracted data from the database:
+2. **Run the main script:**
+    ```sh
+    python main.py
+    ```
 
+3. **Follow the on-screen instructions to upload and parse your Excel file.**
 
-Using a Browser:
-Navigate to http://127.0.0.1:8000/extracted_data/.
+## Contributing
+We welcome contributions to the Chatgpt-Excel-Parser project. To contribute, follow these steps:
 
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Open a pull request.
 
-How It Works
-FastAPI Application
-Endpoints:
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-POST /process_spreadsheets/: Processes all Excel files in the sample_data folder.
-POST /upload_and_process/: Allows users to upload and process a single Excel file.
-GET /extracted_data/: Retrieves all extracted data from the database.
-Background Tasks: The processing of spreadsheets is done as a background task to prevent blocking the main thread.
-
-Data Processing
-Sample Data Generation: On startup, the application generates sample Excel files with mock data.
-
-Processing Excel Files:
-
-Reads each Excel file using pandas.
-Iterates over each row and sends the data to the OpenAI ChatGPT API for extraction and summarization.
-Stores the original and extracted data in a SQLite database using SQLAlchemy ORM.
-OpenAI ChatGPT Interaction
-Prompt Construction: For each row, a prompt is created to instruct ChatGPT to extract key information and summarize the product data.
-
-API Call: Uses the openai.ChatCompletion.create() method to interact with the ChatGPT model.
-
-Database Integration
-SQLite Database: The application uses SQLite for simplicity, but you can replace it with any other database by adjusting the connection string and setup.
-
-SQLAlchemy ORM: Handles database interactions and models.
-
+## Contact
+For any questions or feedback, please contact:
+- **Twinkle Lathiya** - [twinklelathiya@example.com](mailto:twinklelathiya@example.com)
+- **GitHub Repository**: [Chatgpt-Excel-Parser](https://github.com/parthlathiya2697/Chatgpt-Excel-Parser)
